@@ -40,7 +40,8 @@ namespace HGPS_SlideViewer
 
             var status = await WebHelper.GetStatus();
 
-            if (status.LessonState == "started")
+            if (status.LessonState != "ended"
+                && status.LessonState != null)
             {
                 StartLesson(status);
             }
@@ -55,8 +56,12 @@ namespace HGPS_SlideViewer
         {
             var status = e.Status;
             LessonStatusHelper.LessonStatus = status;
-
-            if (status.LessonState == "started")
+            
+            if (status.LessonState == null || status.LessonState == "ended")
+            {
+                NoLesson();
+            }
+            else if (status.LessonState == "started")
             {
                 StartLesson(status);
 
@@ -87,11 +92,6 @@ namespace HGPS_SlideViewer
                     });
                     BeginInvoke(action);
                 }
-            }
-            
-            else if (status.LessonState == null || status.LessonState == "ended")
-            {
-                NoLesson();
             }
         }
 
