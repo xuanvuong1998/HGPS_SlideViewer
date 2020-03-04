@@ -11,8 +11,8 @@ namespace HGPS_SlideViewer
 {
     public static class WebHelper
     {
-        //private const string BASE_ADDRESS = "http://robo-ta.com/";
-        private const string BASE_ADDRESS = "https://localhost:44353/";
+        private const string BASE_ADDRESS = "http://robo-ta.com/";
+        //private const string BASE_ADDRESS = "https://localhost:44353/";
         private const string ACCESS_TOKEN = "1H099XeDsRteM89yy91QonxH3mEd0DoE";
         public static async Task<LessonStatus> GetStatus()
         {
@@ -55,26 +55,5 @@ namespace HGPS_SlideViewer
             }
         }
 
-        public static async Task<List<QuizData>> GetResults()
-        {
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri(BASE_ADDRESS);
-                var response = await client.GetAsync("api/Results/GetResults");
-
-                if (response.IsSuccessStatusCode)
-                {
-                    var resultsJson = await response.Content.ReadAsStringAsync();
-                    if (resultsJson != null)
-                    {
-                        resultsJson = Regex.Unescape(resultsJson);
-                        resultsJson = resultsJson.Substring(1, resultsJson.Length - 2);
-                        var results = JsonConvert.DeserializeObject<List<QuizData>>(resultsJson);
-                        return results;
-                    }
-                }
-                return null;
-            }
-        }
     }
 }

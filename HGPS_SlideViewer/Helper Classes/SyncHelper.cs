@@ -13,9 +13,8 @@ namespace HGPS_SlideViewer
         private static HubConnection _hubConnection;
         private static IHubProxy _hub;
         private const string CLIENT_NAME = "Robo-TA Slides";
-        //private const string _baseAddress = "http://robo-ta.com/";
-        private const string _baseAddress = "https://localhost:44353/";
-
+        private const string _baseAddress = "http://robo-ta.com/";
+        //private const string _baseAddress = "https://localhost:44353/";
 
         public static event EventHandler<StatusEventArgs> StatusChanged;
 

@@ -86,7 +86,6 @@
   <ItemGroup>
     <Compile Include="Data Models\LessonStatus.cs" />
     <Compile Include="Data Models\Quiz.cs" />
-    <Compile Include="Data Models\QuizData.cs" />
     <Compile Include="Data Models\Results.cs" />
     <Compile Include="Helper Classes\FileHelper.cs" />
     <Compile Include="Forms\Form1.cs">
@@ -95,9 +94,8 @@
     <Compile Include="Forms\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Helper Classes\ExcelHelper.cs" />
     <Compile Include="Helper Classes\LessonStatusHelper.cs" />
-    <Compile Include="Helper Classes\ResultsHelper.cs" />
+    <Compile Include="Helper Classes\ResultsDisplayHelper.cs" />
     <Compile Include="Helper Classes\SyncHelper.cs" />
     <Compile Include="Helper Classes\WebHelper.cs" />
     <Compile Include="Forms\MediaPlayerForm.cs">

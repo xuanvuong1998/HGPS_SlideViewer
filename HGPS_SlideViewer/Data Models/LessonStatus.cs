@@ -11,8 +11,8 @@ namespace HGPS_SlideViewer
         public string LessonId { get; set; }
         public string LessonState { get; set; }
         public string LessonName { get; set; }
-        public Nullable<int> LessonSlide { get; set; }
-        public Nullable<int> AskQuestionNumber { get; set; }
+        public int? LessonSlide { get; set; }
+        public int? AskQuestionNumber { get; set; }
         public string MediaPath { get; set; }
         public string MediaCompleted { get; set; }
         public Quiz CurQuiz { get; set; }
