@@ -96,6 +96,7 @@
     </Compile>
     <Compile Include="Helper Classes\LessonStatusHelper.cs" />
     <Compile Include="Helper Classes\ResultsDisplayHelper.cs" />
+    <Compile Include="Data Models\RobotCmd.cs" />
     <Compile Include="Helper Classes\SyncHelper.cs" />
     <Compile Include="Helper Classes\WebHelper.cs" />
     <Compile Include="Forms\MediaPlayerForm.cs">

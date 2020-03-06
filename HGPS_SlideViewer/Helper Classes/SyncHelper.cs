@@ -11,20 +11,51 @@ namespace HGPS_SlideViewer
     public static class SyncHelper
     {
         private static HubConnection _hubConnection;
-        private static IHubProxy _hub;
+        private static IHubProxy _syncHub, _myHub;
         private const string CLIENT_NAME = "Robo-TA Slides";
-        private const string _baseAddress = "http://robo-ta.com/";
-        //private const string _baseAddress = "https://localhost:44353/";
+        //private const string _baseAddress = "http://robo-ta.com/";
+        private const string _baseAddress = "https://localhost:44353/";
 
         public static event EventHandler<StatusEventArgs> StatusChanged;
 
         static SyncHelper()
         {
             _hubConnection = new HubConnection(_baseAddress);
-            _hub = _hubConnection.CreateHubProxy("SyncHub");
-            _hub.On<string>("statusChanged", (status) => OnStatusChanged(status));
+            _syncHub = _hubConnection.CreateHubProxy("SyncHub");
+            _myHub = _hubConnection.CreateHubProxy("MyHub");
+
+            _syncHub.On<string>("statusChanged", (status) => OnStatusChanged(status));
+
+            _myHub.On("OpenResultUrl", (rankingsType)
+                => OnDisplayResult(rankingsType));
+           
             _hubConnection.Start().Wait();
-            _hub.Invoke("Notify", CLIENT_NAME, _hubConnection.ConnectionId);
+            _syncHub.Invoke("Notify", CLIENT_NAME, _hubConnection.ConnectionId);
+        }
+
+        private static void OnDisplayResult(string rankingsType)
+        {
+            if (rankingsType == "hide")
+            {
+                ResultsDisplayHelper.HideResult();
+                return;
+            }
+
+            if (rankingsType.Contains("group-competition"))
+            {
+                ResultsDisplayHelper.DisplayGroupCompetitionResult();
+            }else if (rankingsType.Contains("group-challenge"))
+            {
+                ResultsDisplayHelper.DisplayGroupChallengeResult();
+            }else if (rankingsType.Contains("individual"))
+            {
+                ResultsDisplayHelper.DisplayIndividualResult();
+            }
+        }
+
+        public static void Test()
+        {
+
         }
 
         private static void OnStatusChanged(string status)

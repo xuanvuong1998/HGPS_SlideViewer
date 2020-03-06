@@ -9,12 +9,12 @@ namespace HGPS_SlideViewer
 {
     class ResultsDisplayHelper
     {
-        private const string URL1 = "http://robo-ta.com/Rankings/HalfHalfChallenge";
-        private const string URL2 = "http://robo-ta.com/Rankings/GroupChallenge";
-        private const string URL3 = "http://robo-ta.com/Rankings/Individual";
+        private const string URL1 = "https://localhost:44353/Ranking/GroupCompetition";
+        private const string URL2 = "https://localhost:44353/Ranking/GroupChallenge";
+        private const string URL3 = "https://localhost:44353/Ranking/Individual";
         
         
-        public static void DisplayHalfHalfChallengeResult()
+        public static void DisplayGroupCompetitionResult()
         {
             ProcessStartInfo pInfo = new ProcessStartInfo(URL1);
 

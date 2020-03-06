@@ -16,7 +16,6 @@ namespace HGPS_SlideViewer
     public partial class Form1 : Form
     {
         int width, height;
-        Process myProcess;
 
         public Form1()
         {
@@ -63,7 +62,7 @@ namespace HGPS_SlideViewer
             {
                 NoLesson();
             }
-            else if (status.LessonState == "started")
+            else //if (status.LessonState == "started")
             {
                 StartLesson(status);
 
@@ -94,23 +93,6 @@ namespace HGPS_SlideViewer
                     });
                     BeginInvoke(action);
                 }
-            }else if (status.LessonState.Contains("badges"))
-            {
-                var anncType = status.LessonState.Split('-')[1];
-
-                if (anncType == "half_half_challenge")
-                {
-                    ResultsDisplayHelper.DisplayHalfHalfChallengeResult();
-                }else if (anncType == "group_challenge")
-                {
-                    ResultsDisplayHelper.DisplayGroupChallengeResult();
-                }else if (anncType == "individual")
-                {
-                    ResultsDisplayHelper.DisplayIndividualResult();   
-                }else if (anncType == "hide")
-                {
-                    ResultsDisplayHelper.HideResult();
-                }
             }
         }
 
@@ -131,7 +113,10 @@ namespace HGPS_SlideViewer
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            
+            if (e.KeyCode == Keys.Enter)
+            {
+                ResultsDisplayHelper.DisplayGroupChallengeResult();
+            }
         }
 
         private void NoLesson()
