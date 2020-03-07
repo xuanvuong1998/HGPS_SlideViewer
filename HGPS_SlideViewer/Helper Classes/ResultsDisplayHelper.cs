@@ -12,6 +12,7 @@ namespace HGPS_SlideViewer
         private const string URL1 = "https://localhost:44353/Ranking/GroupCompetition";
         private const string URL2 = "https://localhost:44353/Ranking/GroupChallenge";
         private const string URL3 = "https://localhost:44353/Ranking/Individual";
+        private const string URL4 = "https://localhost:44353/Ranking/Improvement";
         
         
         public static void DisplayGroupCompetitionResult()
@@ -28,13 +29,19 @@ namespace HGPS_SlideViewer
             Process.Start(pInfo);
         }
 
-        public static void DisplayIndividualResult()
+        public static void DisplayBestStudents()
         {
             ProcessStartInfo pInfo = new ProcessStartInfo(URL3);
 
             Process.Start(pInfo);
         }
 
+        public static void DisplayBestImprovements()
+        {
+            ProcessStartInfo pInfo = new ProcessStartInfo(URL4);
+
+            Process.Start(pInfo);
+        }
 
         /// <summary>
         /// Kill any chrome instance

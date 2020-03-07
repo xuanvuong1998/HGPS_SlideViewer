@@ -49,13 +49,14 @@ namespace HGPS_SlideViewer
                 ResultsDisplayHelper.DisplayGroupChallengeResult();
             }else if (rankingsType.Contains("individual"))
             {
-                ResultsDisplayHelper.DisplayIndividualResult();
+                if (rankingsType.Contains("improvement"))
+                {
+                    ResultsDisplayHelper.DisplayBestImprovements();
+                }else if (rankingsType.Contains("top-students"))
+                {
+                    ResultsDisplayHelper.DisplayBestStudents();
+                }
             }
-        }
-
-        public static void Test()
-        {
-
         }
 
         private static void OnStatusChanged(string status)
