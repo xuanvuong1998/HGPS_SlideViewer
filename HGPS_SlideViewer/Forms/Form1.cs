@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using Timer = System.Timers.Timer;
 
 namespace HGPS_SlideViewer
 {
@@ -115,7 +116,7 @@ namespace HGPS_SlideViewer
         {
             if (e.KeyCode == Keys.Enter)
             {
-                ResultsDisplayHelper.DisplayGroupChallengeResult();
+                ResultsDisplayHelper.DisplayGroupCompetitionResult();
             }
         }
 
