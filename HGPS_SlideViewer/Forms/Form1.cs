@@ -122,7 +122,7 @@ namespace HGPS_SlideViewer
 
         private void NoLesson()
         {
-            var defaultImage = FileHelper.DropboxPath + @"\default.png";
+            var defaultImage =  Application.StartupPath + @"\images\default.png";
             Action action = new Action(() =>
             {
                 if (File.Exists(defaultImage))
