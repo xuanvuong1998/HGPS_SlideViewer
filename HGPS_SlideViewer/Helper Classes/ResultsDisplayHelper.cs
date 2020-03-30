@@ -9,11 +9,11 @@ namespace HGPS_SlideViewer
 {
     class ResultsDisplayHelper
     {
-        private const string URL1 = "http://robo-ta.com/Ranking/GroupCompetition";
-        private const string URL2 = "http://robo-ta.com/Ranking/GroupChallenge";
-        private const string URL3 = "http://robo-ta.com/Ranking/Individual";
-        private const string URL4 = "http://robo-ta.com/Ranking/Improvement";
-        
+
+        private const string URL1 = WebHelper.BASE_ADDRESS + "Ranking/GroupCompetition";
+        private const string URL2 = WebHelper.BASE_ADDRESS + "Ranking/GroupChallenge";
+        private const string URL3 = WebHelper.BASE_ADDRESS + "Ranking/Individual";
+        private const string URL4 = WebHelper.BASE_ADDRESS + "Ranking/Improvement";
         
         public static void DisplayGroupCompetitionResult()
         {
